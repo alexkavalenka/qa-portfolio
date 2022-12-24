@@ -1,0 +1,74 @@
+#1
+Summary 
+[Product Detail Page] Home page opens instead of Category page when user proceeds to it from Product Details page	
+
+Steps 
+1. Go to any Product Details page
+2. Click on any Category on the Nav bar"	
+
+Expected result
+The Category page should open	
+
+Actual result
+Home page opens	
+
+Attachment
+
+
+#2
+Summary 
+[Checkout Page] The Subtotal & Total prices do not reflect the product quantity
+
+Steps
+1. Add any item to the Cart
+2. Go to the Cart
+3. Change the quantity of the product to 2 (or more)
+4. Go to Checkout 
+5. Review the Subtotal Price & Total price"	
+
+Expected result
+The Subtotal & Total prices should reflect the quantity of the product	
+
+Actual result
+The Subtotal & Total prices display as for 1 product
+
+Attachment
+
+#3
+Summary 
+[Checkout Page] It’s possible to complete the payment with empty email field
+
+Steps
+1. Add any product to the Cart
+2. Go to Checkout page
+3. Enter all required fields except email
+4. Click Confirm order button"	
+
+Expected result
+User should be notified that some of the required fields are empty
+The payment should NOT be completed"	
+
+Actual result
+The payment completed successfully with some empty required fields 
+
+Attachment
+
+
+#4
+Summary
+[Checkout page] Added promo code is disappeared after user goes away from Checkout page and then come back	
+
+Steps
+1. Add any items to the Cart
+2. Go to the Checkout page
+3. Add valid Promo code (""25OFF"")
+4. Back to Home page
+5. Back to Checkout page"	
+
+Expected result
+The Promo Code should still be applied	
+
+Actual result
+The Promo Code disappeared
+
+Attachment
