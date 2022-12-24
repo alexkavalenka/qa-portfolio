@@ -1,0 +1,11 @@
+Title																						
+Cart icon should be hidden from the Checkout page	
+
+Steps	
+Given user is on the Checkout page
+	
+Expected result	
+Then the Cart icon should be hidden
+	
+
+My Comments																			
