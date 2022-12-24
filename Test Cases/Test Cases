@@ -1,3 +1,4 @@
+#1
 Title																						
 Cart icon should be hidden from the Checkout page	
 
@@ -7,5 +8,52 @@ Given user is on the Checkout page
 Expected result	
 Then the Cart icon should be hidden
 	
+Device
+Desktop and Mobile
 
-My Comments																			
+
+#2
+Title
+User should be able to navigate to the Cart page from any website page by clicking cart icon
+
+Steps
+Given user is on any Category page
+When user clicks on the Cart icon 
+
+Expected result
+Then user gets transferred to the Cart page 
+
+Device	
+Desktop & Mobile	
+
+		
+#3
+Title
+The green dot should appear on the cart icon after user added the first item in the Cart	
+
+Steps
+Given user is on a Category page
+When user picked a product
+And clicks Add to Cart button 
+
+Expected result
+Then the green dot should appear next to the Cart icon	
+
+Device
+Desktop & Mobile	
+
+
+#4
+Title
+Total amount should adjust to the quantity of product selected
+
+Steps	
+Given user is on the Cart page
+When user changes the quantity to 2 in quantity picker
+And clicks to Add to Cart"	
+
+Expected result
+Then Total amount should be calculated accordingly	
+
+Device
+Desktop & Mobile													
