@@ -1,0 +1,222 @@
+SHOW databases;ysql> mysql status
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql status
+show databases' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database demo;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| demo               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> CREATE database Students;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Show darabases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'darabases' at line 1
+mysql> SHOW databases;
++--------------------+
+| Database           |
++--------------------+
+| demo               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| Students           |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> DROP database demo;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| Students           |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> USE Students;
+Database changed
+mysql> SHOW tables
+    -> CREATE table 
+    -> 
+    -> (id INT(11) NOT NULL PRIMARY KEY,
+    -> faculty VARCHAR(55) NULL,
+    -> number INT(2) NULL);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE table 
+
+(id INT(11) NOT NULL PRIMARY KEY,
+faculty VARCHAR(55) NULL,
+numbe' at line 2
+mysql> SHOW Students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Students' at line 1
+mysql> DESC Students
+    -> :
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':' at line 2
+mysql> CREATE table Courses
+    -> (id INT(11) NOT NULL PRIMARY KEY,
+    -> faculty VARCHAR(55) NULL,
+    -> number INT(2) NULL);
+Query OK, 0 rows affected, 2 warnings (0.01 sec)
+
+mysql> SELRCT * FROM Courses;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELRCT * FROM Courses' at line 1
+mysql> SELECT * FROM Courses;
+Empty set (0.01 sec)
+
+mysql> DESC Courses;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | NO   | PRI | NULL    |       |
+| faculty | varchar(55) | YES  |     | NULL    |       |
+| number  | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> DROP INSERT INTO Courses VALUES(1,"BIO",1);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSERT INTO Courses VALUES(1,"BIO",1)' at line 1
+mysql> INSERT INTO Courses VALUES (1, "bio", 1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> NSERT INTO Courses VALUES (1, "chem", 1);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NSERT INTO Courses VALUES (1, "chem", 1)' at line 1
+mysql> INSERT INTO Courses VALUES (1,"chem", 1);
+ERROR 1062 (23000): Duplicate entry '1' for key 'courses.PRIMARY'
+mysql> INSERT INTO Courses VALUES (2, "chem", 2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO Courses VALUES (3, "math", 3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO Courses VALUES (4, "geo", 4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO Courses VALUES (5, "gum", 5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> DESC Courses;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | NO   | PRI | NULL    |       |
+| faculty | varchar(55) | YES  |     | NULL    |       |
+| number  | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Courses;
++----+---------+--------+
+| id | faculty | number |
++----+---------+--------+
+|  1 | bio     |      1 |
+|  2 | chem    |      2 |
+|  3 | math    |      3 |
+|  4 | geo     |      4 |
+|  5 | gum     |      5 |
++----+---------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Courses LIMIT 2;
++----+---------+--------+
+| id | faculty | number |
++----+---------+--------+
+|  1 | bio     |      1 |
+|  2 | chem    |      2 |
++----+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT number AS mamba FROM Courses;
++-------+
+| mamba |
++-------+
+|     1 |
+|     2 |
+|     3 |
+|     4 |
+|     5 |
++-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT faculty, number FROM Courses WHERE faculty = "bio";
++---------+--------+
+| faculty | number |
++---------+--------+
+| bio     |      1 |
++---------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM Courses WHERE numer =1 AND faculty = "chem";
+ERROR 1054 (42S22): Unknown column 'numer' in 'where clause'
+mysql> SELECT * FROM Courses WHERE number BETWEEN 2 AND 4;
++----+---------+--------+
+| id | faculty | number |
++----+---------+--------+
+|  2 | chem    |      2 |
+|  3 | math    |      3 |
+|  4 | geo     |      4 |
++----+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT faculty FROM Courses WHERE faculy LIKE "_o";
+ERROR 1054 (42S22): Unknown column 'faculy' in 'where clause'
+mysql> SELECT faculty FROM Courses WHERE faculty LIKE "_o";
+Empty set (0.01 sec)
+
+mysql> SELECT faculty FROM Courses WHERE faculty LIKE "%o";
++---------+
+| faculty |
++---------+
+| bio     |
+| geo     |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Courses WHERE (faculty = "teo" OR faculty = "bio") AND number =1;
++----+---------+--------+
+| id | faculty | number |
++----+---------+--------+
+|  1 | bio     |      1 |
++----+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM Courses ORDER BY faculty DESC;
++----+---------+--------+
+| id | faculty | number |
++----+---------+--------+
+|  3 | math    |      3 |
+|  5 | gum     |      5 |
+|  4 | geo     |      4 |
+|  2 | chem    |      2 |
+|  1 | bio     |      1 |
++----+---------+--------+
+5 rows in set (0.00 sec)
+
+mysql> 
